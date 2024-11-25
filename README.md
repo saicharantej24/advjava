@@ -249,8 +249,8 @@ OUTPUT:
 static block
 Instance block
 -----------------------------------------------------------------------------------------------------------------------------------------
-PROG 8:
-//FETCHING DATA FROM DB:
+**PROG 8:
+//FETCHING DATA FROM DB:**
 
 
 package adv1;
@@ -263,6 +263,9 @@ public class fetching {
     	System.out.println(t2.tname);//we have to print name from db
     }
 }
+
+
+
 class Tab1data
 {
 	public Tab1 getName(int tid)          //method to get name from db
@@ -299,8 +302,71 @@ class  Tab1
 OUTPUT:
 cherry
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
+**Program:
+//Inserting data:**
 
+package adv1;
+import java.sql.*;
+public class fet2 {
+   public static void main(String[] args)
+   {
+	   
+	     Tabdata t1=new Tabdata();
+	     
+	     Table tab1=new Table();
+	     t1.connect();
+	     tab1.tname="Rama";
+	     tab1.troll=10;
+	     t1.addStudent(tab1);
+	     
+   }
+}
+class Tabdata
+{      
+	Connection con=null;
+	public void connect()
+	{  
+		 try {
+			 Class.forName("com.mysql.cj.jdbc.Driver");
+		 
+		  con=DriverManager.getConnection("jdbc:mysql://localhost/charan","root","Sai@2003");  
+		 }
+		  catch(Exception ex)
+		 {
+			  System.out.println(ex);
+		 }
+		
+	}
+        
+	  public void addStudent(Table tab1)
+	  {
+		    String query="insert into tab1 values(?,?)";
+		    PreparedStatement pst;
+		    try{
+		    	pst= con.prepareStatement(query);
+		    
+		    pst.setInt(1,tab1.troll);
+		    pst.setString(2, tab1.tname);
+		    pst.executeUpdate();
+	  }
+		    catch(Exception e)
+		    {
+		    	System.out.println(e);
+		    }
+	  }
+	
+}
+class Table
+{
+	int troll;
+	String tname;
+}
 
+**OUTPUT:
+MYSQL:
+10-Rama
+**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
