@@ -1,4 +1,22 @@
-# advjava
+how to add jar file:
+
+To add a JAR file to the WEB-INF/lib folder in your project, follow these steps:
+
+1. Locate the JAR File
+Download the MySQL Connector/J JAR file from the official MySQL website.
+Save the file to a known location on your system (e.g., your Downloads folder).
+2. Add the JAR File to WEB-INF/lib
+In Eclipse, open the Project Explorer.
+Locate the WEB-INF/lib folder under the WebContent directory of your project.
+If the lib folder does not exist, create it:
+Right-click on WEB-INF, select New > Folder, and name it lib.
+Right-click on the lib folder and select Import....
+In the Import dialog:
+Expand General and select File System, then click Next.
+Browse to the location of the JAR file, select it, and click Finish.
+The JAR file will now appear inside the WEB-INF/lib folder.
+--------------------------------------------*************************************************_-----------------------------
+   # advjava
 JDBC STEPS:
 7 STEPS:
 1)import---------java.sql;
